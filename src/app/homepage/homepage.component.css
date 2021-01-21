@@ -1,0 +1,11 @@
+.img-homepage {
+  height: 200px;
+  border-radius: 8px;
+  transition: transform 0.2s;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.img-homepage:hover {
+  transform: scale(1.1);
+}

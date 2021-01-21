@@ -1,0 +1,18 @@
+<div class="main-container mx-auto mt-5">
+  <h1 class="text-center my-5">Welcome</h1>
+  <div class="flex-wrap d-flex">
+    <div
+      *ngFor="let card of cards; let i = index"
+      class="col-4"
+      [ngClass]="i % 2 == 0 ? 'box-green' : 'box-orange'"
+    >
+      <h3>{{ card.title }}</h3>
+      <img [src]="card.imgUrl" class="img-fluid img-homepage" />
+      <p class="mt-3">{{ card.description }}</p>
+    </div>
+  </div>
+
+  <button class="float-right" routerLink="/articles/create-article">
+    Upload <img src="../../assets/circle-plus.svg" />
+  </button>
+</div>

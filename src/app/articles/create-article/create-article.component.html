@@ -1,0 +1,62 @@
+<div class="main-container mx-auto mt-5">
+  <h1 class="my-4">Create a new article</h1>
+  <form
+    [formGroup]="articleForm"
+    (ngSubmit)="articleForm.valid && onSubmitForm()"
+  >
+    <div>
+      <input
+        class="input-form"
+        type="text"
+        placeholder="Title"
+        formControlName="title"
+        [ngClass]="{
+          'border-danger':
+            articleForm.get('title').touched && articleForm.get('title').errors
+        }"
+      />
+    </div>
+    <div
+      *ngIf="
+        articleForm.get('title').touched && articleForm.get('title').errors
+      "
+      class="text-danger text-left mt-2 ml-2 validators"
+    >
+      Title is mandatory
+    </div>
+    <div>
+      <textarea
+        class="input-form"
+        rows="3"
+        placeholder="Description"
+        formControlName="description"
+        [ngClass]="{
+          'border-danger':
+            articleForm.get('description').touched &&
+            articleForm.get('description').errors
+        }"
+      >
+      </textarea>
+    </div>
+    <div
+      *ngIf="
+        articleForm.get('description').touched &&
+        articleForm.get('description').errors
+      "
+      class="text-danger text-left mt-2 ml-2 validators"
+    >
+      Description is mandatory
+    </div>
+
+    <input
+      class="input-form"
+      type="file"
+      #fileDropRef
+      id="fileDropRef"
+      accept="image/*;capture=camera"
+      (change)="onImageAdded($event)"
+    />
+
+    <button type="submit" [disabled]="isLoading">Add it</button>
+  </form>
+</div>

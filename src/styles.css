@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body {
+  background-color: #e7e7de !important;
+  font-family: "Montserrat", sans-serif !important;
+}
+
+.main-container {
+  width: 50%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Vollkorn", serif;
+}
+
+p {
+  font-family: "Montserrat", sans-serif;
+}
+
+button {
+  outline: none;
+  padding: 10px 30px;
+  border-radius: 6px !important;
+  font-family: "Vollkorn", serif !important;
+  font-weight: 700;
+  font-size: 20px !important;
+  background: #c8e7c8;
+  border: 0px solid #252525;
+  color: #252525;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #8fc58f;
+}
