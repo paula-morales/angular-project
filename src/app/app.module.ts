@@ -8,8 +8,13 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireModule } from '@angular/fire';
+import { CardDogComponent } from './homepage/card-dog/card-dog.component';
+import { apiKeys } from './../password';
+
 @NgModule({
-  declarations: [AppComponent, HomepageComponent],
+  declarations: [AppComponent, HomepageComponent, CardDogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -17,6 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
+    AngularFireModule.initializeApp(apiKeys),
+    AngularFireStorageModule,
   ],
   exports: [],
   providers: [],
