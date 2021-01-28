@@ -1,18 +1,39 @@
-<div class="main-container mx-auto mt-5">
-  <h1 class="text-center my-5">Welcome</h1>
-  <div class="flex-wrap d-flex">
-    <div
-      *ngFor="let card of cards; let i = index"
-      class="col-4"
-      [ngClass]="i % 2 == 0 ? 'box-green' : 'box-orange'"
-    >
-      <h3>{{ card.title }}</h3>
-      <img [src]="card.imgUrl" class="img-fluid img-homepage" />
-      <p class="mt-3">{{ card.description }}</p>
+<div class="page-1">
+  <img src="../../assets/ellipse.svg" class="ellipse position-absolute" />
+  <navbar></navbar>
+  <img
+    src="../../assets/background-dog.png"
+    class="background-img-dog-1 img-fluid d-none d-md-inline"
+  />
+
+  <div class="container-title">
+    <h1 class="font-nixie-one">You can't buy</h1>
+    <h1 class="font-norican word-love">love!</h1>
+    <div class="mt-5">
+      <a href="/homepage#pets">
+        <button
+          class="adopt-pet-button position-relative d-flex align-items-center"
+        >
+          <img src="../../assets/icon/paw_full_white.svg" />
+          <div class="ml-2 mt-2">Adopt a pet</div>
+        </button>
+      </a>
     </div>
   </div>
-
-  <button class="float-right" routerLink="/articles/create-article">
-    Upload <img src="../../assets/circle-plus.svg" />
-  </button>
 </div>
+
+<div class="flex-wrap d-flex" id="pets" *ngIf="dogs; else loading">
+  <card-dog
+    *ngFor="let dog of dogs; let i = index"
+    [dog]="dog"
+    class="col-12 col-sm-2 col-md-3"
+  ></card-dog>
+</div>
+
+<button class="float-right" routerLink="/articles/create-article">
+  Upload <img src="../../assets/circle-plus.svg" />
+</button>
+
+<ng-template #loading>
+  <loading></loading>
+</ng-template>

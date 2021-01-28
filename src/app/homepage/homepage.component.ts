@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { CardsService } from '../shared/services/cards.service';
 
 import { Card } from '../models/Card';
+import { Dog } from '../models/Dog';
+import { CardsService } from '../shared/services/cards.service';
+import { DogsService } from '../shared/services/dogs.service';
 
 @Component({
   selector: 'homepage',
@@ -13,28 +14,18 @@ import { Card } from '../models/Card';
 export class HomepageComponent implements OnInit {
   private unsubscribe = new Subject();
 
-  cards: Card[];
+  dogs: Dog[];
   isLoading: boolean;
   isError: boolean;
 
-  constructor(private cardService: CardsService) {}
+  constructor(private cardsService: CardsService) {}
 
   ngOnInit(): void {
-    this.getCards();
+    this.getDogs();
   }
 
-  getCards() {
-    this.isLoading = true;
-    this.cardService
-      .getCards()
-      .pipe(takeUntil(this.unsubscribe))
-      .subscribe(
-        (cards: Card[]) => {
-          this.cards = cards;
-          this.cleanError();
-        },
-        (error) => this.handleError
-      );
+  getDogs() {
+    this.dogs = this.cardsService.getDogs();
   }
 
   cleanError() {

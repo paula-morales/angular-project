@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Card } from '../../models/Card';
+import { Dog } from '../../models/Dog';
+import { DogsService } from './dogs.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CardsService {
-  url_cards: string = 'http://localhost:8000/cards/';
+  dogs: Dog[];
 
-  constructor(private http: HttpClient) {}
+  constructor(private dogsService: DogsService) {}
 
-  getCards(): Observable<Card[]> {
-    return this.http.get<Card[]>(this.url_cards);
+  getDogs(): Dog[] {
+    return this.dogsService.dogs;
   }
 }

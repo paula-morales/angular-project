@@ -1,11 +1,46 @@
-.img-homepage {
-  height: 200px;
-  border-radius: 8px;
-  transition: transform 0.2s;
-  object-fit: cover;
-  object-position: center center;
+.page-1 {
+  height: 100vh;
+  background-color: #dadada !important;
 }
 
-.img-homepage:hover {
-  transform: scale(1.1);
+.background-img-dog-1 {
+  position: absolute;
+  right: 0;
+  height: 60%;
+  top: 40%;
+}
+
+.ellipse {
+  height: 80%;
+  z-index: 0;
+  display: none;
+}
+
+h1 {
+  position: relative;
+  z-index: 1;
+  font-size: 100px;
+}
+
+@media screen and (min-width: 1000px) {
+  .container-title {
+    margin-left: 11%;
+    margin-top: 8%;
+  }
+
+  .ellipse {
+    display: inline !important;
+  }
+}
+
+.word-love {
+  font-size: 160px;
+}
+
+.adopt-pet-button {
+  font-size: 40px !important;
+}
+
+a:hover {
+  text-decoration: none !important;
 }
