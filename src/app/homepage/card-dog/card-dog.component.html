@@ -1,5 +1,12 @@
-<div class="card">
-  <h3>{{ dog.name }}</h3>
-  <img [src]="dog.pictures[0]" class="img-fluid img-homepage" />
-  <p class="mt-3">{{ dog.description }}</p>
+<div class="card cursor-pointer my-4 mx-2" (click)="onClickFlipCard()">
+  <div class="card-body">
+    <p class="text-right" *ngIf="!toggleFlipCard">Click to see details!</p>
+    <div *ngIf="!toggleFlipCard" class="front-card">
+      <h3 class="card-title capitalize-first-letter">{{ dog.name }}</h3>
+      <img [src]="dog.pictures[0]" class="img-fluid img-homepage" />
+    </div>
+    <p class="mt-3 inner-card" *ngIf="toggleFlipCard">
+      {{ dog.description }}
+    </p>
+  </div>
 </div>

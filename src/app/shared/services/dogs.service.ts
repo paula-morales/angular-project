@@ -14,6 +14,7 @@ export class DogsService {
       color: ['black', 'white'],
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut odio blandit, dignissim tortor sit amet, interdum sem. Praesent sit amet lorem mi. Nunc mi mi, dignissim at scelerisque sed, accumsan non orci. Etiam volutpat arcu et consequat placerat.',
+
       pictures: [
         'https://firebasestorage.googleapis.com/v0/b/new-project-f7eee.appspot.com/o/o4nyvq6vqai?alt=media&token=f814762a-7873-4c70-b457-747e6ae0a82c',
         'https://firebasestorage.googleapis.com/v0/b/new-project-f7eee.appspot.com/o/o2dpuedsyfe?alt=media&token=f0b1e747-c65d-4fdc-9cd8-ebf96134ae26',
@@ -52,7 +53,7 @@ export class DogsService {
     },
     {
       id: 4,
-      name: 'salchicha',
+      name: 'boo',
       gender: 'female',
       race: 'dashshund',
       age: 6,

@@ -8,8 +8,13 @@ import { Dog } from 'src/app/models/Dog';
 })
 export class CardDogComponent implements OnInit {
   @Input() dog: Dog;
+  toggleFlipCard: boolean;
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  onClickFlipCard() {
+    this.toggleFlipCard = !this.toggleFlipCard;
+  }
 }

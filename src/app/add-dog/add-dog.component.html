@@ -1,0 +1,68 @@
+<div class="container text-white">
+  <navbar></navbar>
+
+  <div class="main-container mx-auto mt-5">
+    <div>TODO</div>
+    <h1 class="my-4">Add a dog</h1>
+    <form
+      [formGroup]="addDogForm"
+      (ngSubmit)="addDogForm.valid && onSubmitForm()"
+    >
+      <div>
+        <input
+          class="input-form col-12"
+          type="text"
+          placeholder="Name"
+          formControlName="name"
+          [ngClass]="{
+            'border-danger':
+              addDogForm.get('name').touched && addDogForm.get('name').errors
+          }"
+        />
+      </div>
+      <div
+        *ngIf="addDogForm.get('name').touched && addDogForm.get('name').errors"
+        class="text-left mb-2 ml-2 validators"
+      >
+        Title is mandatory
+      </div>
+      <div>
+        <textarea
+          class="input-form col-12"
+          rows="3"
+          placeholder="Description"
+          formControlName="description"
+          [ngClass]="{
+            'border-danger':
+              addDogForm.get('description').touched &&
+              addDogForm.get('description').errors
+          }"
+        >
+        </textarea>
+      </div>
+      <div
+        *ngIf="
+          addDogForm.get('description').touched &&
+          addDogForm.get('description').errors
+        "
+        class="text-left mb-2 ml-2 validators"
+      >
+        Description is mandatory
+      </div>
+
+      <input type="file" (change)="upload($event)" accept=".png,.jpg" />
+      <div
+        *ngIf="downloadURL | async; let downloadSrc"
+        class="img-preview mt-3"
+      >
+        <img [src]="downloadSrc" class="img-fluid" />
+      </div>
+
+      <div class="mt-3 text-right">
+        <button type="submit" [disabled]="isLoading" class="px-4 py-2">
+          Add
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

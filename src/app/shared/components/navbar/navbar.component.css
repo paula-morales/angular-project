@@ -1,1 +1,20 @@
+nav {
+  font-family: "Montserrat", sans-serif;
+}
 
+a {
+  color: #ffffff;
+}
+
+.active {
+  border-bottom: solid 1px;
+}
+
+.nav-link:hover {
+  border-bottom: solid 1px !important;
+}
+
+.nav-link {
+  transition: border-bottom 0.1s;
+  padding: 0 !important;
+}

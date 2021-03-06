@@ -3,7 +3,20 @@
   border: 0;
   padding: 10px;
   border-radius: 5px;
-  width: 80%;
   font-family: "Montserrat", sans-serif;
   outline: none;
+}
+
+.container {
+  min-height: 100vh;
+}
+
+.img-preview {
+  height: 200px;
+  max-height: 200px;
+  width: 300px;
+}
+
+.img-fluid {
+  max-height: 200px;
 }

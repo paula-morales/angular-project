@@ -13,9 +13,9 @@ const routes: Routes = [
     component: HomepageComponent,
   },
   {
-    path: 'articles',
+    path: 'add-dog',
     loadChildren: () =>
-      import('./articles/articles.module').then((m) => m.ArticlesModule),
+      import('./add-dog/add-dog.module').then((m) => m.AddDogModule),
   },
 ];
 

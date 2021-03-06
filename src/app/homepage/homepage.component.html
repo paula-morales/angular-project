@@ -1,38 +1,20 @@
-<div class="page-1">
-  <img src="../../assets/ellipse.svg" class="ellipse position-absolute" />
+<div class="container">
   <navbar></navbar>
-  <img
-    src="../../assets/background-dog.png"
-    class="background-img-dog-1 img-fluid d-none d-md-inline"
-  />
 
-  <div class="container-title">
-    <h1 class="font-nixie-one">You can't buy</h1>
-    <h1 class="font-norican word-love">love!</h1>
-    <div class="mt-5">
-      <a href="/homepage#pets">
-        <button
-          class="adopt-pet-button position-relative d-flex align-items-center"
-        >
-          <img src="../../assets/icon/paw_full_white.svg" />
-          <div class="ml-2 mt-2">Adopt a pet</div>
-        </button>
-      </a>
-    </div>
+  <div class="container-title text-center mb-5">
+    <h1 class="font-nixie-one text-white mt-5">
+      You can't buy <span class="font-norican word-love">love!</span>
+    </h1>
+  </div>
+
+  <div class="flex-wrap d-flex" id="pets" *ngIf="dogs; else loading">
+    <card-dog
+      *ngFor="let dog of dogs; let i = index"
+      [dog]="dog"
+      class="col-12 col-sm-2 col-md-6"
+    ></card-dog>
   </div>
 </div>
-
-<div class="flex-wrap d-flex" id="pets" *ngIf="dogs; else loading">
-  <card-dog
-    *ngFor="let dog of dogs; let i = index"
-    [dog]="dog"
-    class="col-12 col-sm-2 col-md-3"
-  ></card-dog>
-</div>
-
-<button class="float-right" routerLink="/articles/create-article">
-  Upload <img src="../../assets/circle-plus.svg" />
-</button>
 
 <ng-template #loading>
   <loading></loading>

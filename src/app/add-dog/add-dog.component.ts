@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {
   AngularFireStorage,
   AngularFireStorageReference,
   AngularFireUploadTask,
 } from '@angular/fire/storage';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { finalize, map } from 'rxjs/operators';
+import { finalize } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-create-article',
-  templateUrl: './create-article.component.html',
-  styleUrls: ['./create-article.component.css'],
+  selector: 'app-add-dog',
+  templateUrl: './add-dog.component.html',
+  styleUrls: ['./add-dog.component.css'],
 })
-export class CreateArticleComponent implements OnInit {
+export class AddDogComponent implements OnInit {
   isLoading: boolean;
   ref: AngularFireStorageReference;
   task: AngularFireUploadTask;
@@ -21,8 +21,8 @@ export class CreateArticleComponent implements OnInit {
   uploadProgress: Observable<number>;
   downloadURL: Observable<string>;
 
-  articleForm = new FormGroup({
-    title: new FormControl('', [Validators.required]),
+  addDogForm = new FormGroup({
+    name: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required]),
   });
 
@@ -33,12 +33,8 @@ export class CreateArticleComponent implements OnInit {
   async upload(event) {
     const file = event.target.files[0];
     const filePath = Math.random().toString(36).substring(2);
-    // const ref = this.afStorage.ref(filePath);
     const fileRef = this.afStorage.ref(filePath);
     const task = this.afStorage.upload(filePath, file);
-    // const id = Math.random().toString(36).substring(2);
-    // this.ref = this.afStorage.ref(id);
-    // this.task = this.ref.put(event.target.files[0]);
 
     task
       .snapshotChanges()
@@ -46,16 +42,5 @@ export class CreateArticleComponent implements OnInit {
       .subscribe();
   }
 
-  uploadImage() {
-    console.log(this.filePath);
-    // this.afStorage
-    //   .upload('/images' + Math.random() + this.filePath, this.filePath)
-    //   .then((data) => {
-    //     console.log(data._delegate.task._uploadUrl);
-    //   });
-  }
-
   onSubmitForm() {}
-
-  onImageAdded(e) {}
 }
